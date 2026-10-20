@@ -15,9 +15,9 @@ This project demonstrates a mechanistic digital-twin concept for glucose regulat
 
 ## Team and institution
 
-- Team: TODO
-- Institution: TODO
-- Contact: TODO
+- Team: KIVO
+- Institution:AM Reddy Memorial college of engineering and technology
+- Contact: 6302496321,   ganeshmandala108@gmail.com
 
 ## Technology stack
 
