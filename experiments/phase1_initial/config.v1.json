@@ -1,0 +1,34 @@
+{
+  "experiment_name": "phase1_illustrative_meal",
+  "experiment_version": "1.0.0",
+  "provenance": "illustrative_hypothetical",
+  "notes": "Deterministic software demonstration only. All numeric parameters and initial conditions are hypothetical; no clinical data are used.",
+  "parameters": {
+    "V_G": 12.0,
+    "V_I": 8.0,
+    "M_abs": 70.0,
+    "tau_m": 28.0,
+    "HGP_0": 1.0,
+    "I_ref": 150.0,
+    "K_H": 40.0,
+    "CL_G": 0.08,
+    "S_X": 0.0025,
+    "k_X": 0.004,
+    "tau_X": 48.0,
+    "CL_I": 0.12,
+    "E_H": 0.35,
+    "S_beta_0": 40.0,
+    "G_beta": 4.5,
+    "k_beta": 30.0
+  },
+  "solver": {
+    "method": "LSODA",
+    "rtol": 1e-7,
+    "atol": 1e-9,
+    "dt": 0.5,
+    "duration_min": 360.0,
+    "initial_G_mmol_L": 5.5,
+    "initial_I_pmol_L": 80.0,
+    "initial_X_dimless": null
+  }
+}

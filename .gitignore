@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+.env
+.env.*
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Packaging / build
+build/
+dist/
+*.egg/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Local runtime / generated artifacts
+*.log
+*.sqlite3
+coverage/
+htmlcov/
+outputs/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Secrets / credentials
+*.pem
+*.key
+*.crt
+secrets.*
+credentials.*
+
+# Local config
+local_settings.py
+config.local.*

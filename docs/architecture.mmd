@@ -1,0 +1,13 @@
+flowchart LR
+    A[User Browser] --> B[React Frontend\nTypeScript + Vite]
+    B --> C[FastAPI Backend\n/health /patients /simulation /forecast]
+    C --> D[PhysioTwin Engine\nODE solver + diagnostics]
+    D --> E[Synthetic Patient Profiles]
+    D --> F[Observation Generator]
+    D --> G[Forecast + Evaluation + Risk]
+    G --> H[Uncalibrated sensitivity envelope]
+    H --> I[Research prototype output only]
+
+    note1[No real patient validation\nNo clinical claims]
+    D -. responsible use .-> note1
+    B -. data flows .-> C
