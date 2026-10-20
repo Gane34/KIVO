@@ -117,7 +117,7 @@ These outputs are intended for research and demonstration only and are not calib
 
 ### Data Methodology
 
-This proof of concept uses synthetic patient profiles and synthetic glucose observations. No real-patient clinical validation is claimed or implied. Results generated from synthetic data demonstrate the workflow and the behavior of the model under a controlled experimental setting, but they do not establish real-world predictive accuracy or clinical validity.
+This proof of concept uses synthetic patient profiles and synthetic glucose observations. No real-patient clinical validation is claimed or implied. Results generated from synthetic data demonstrate the workflow and behavior of the model under a controlled experimental setting, but they do not establish real-world predictive accuracy or clinical validity.
 
 ## 8. System Architecture
 
@@ -132,7 +132,22 @@ The system follows a conceptual workflow:
 
 This architecture is designed to make the digital-twin concept accessible, reproducible, and easy to inspect.
 
-## 9. Verified Status
+### Architecture Diagram
+[View Architecture Design](https://docs.google.com/presentation/d/1IYuPtADnnir1QeC-QUPxz5I0edkogLWF/edit?usp=sharing&ouid=110854139414992523830&rtpof=true&sd=true)
+
+## 9. Demo Video
+
+[Watch the PhysioTwin Demo Video](https://drive.google.com/file/d/1qh_mHwpfGy2BwgcGViCg53uN86ZInsHE/view?usp=sharing)
+
+This demo presents the project overview, synthetic patient workflow, simulation logic, forecasting approach, dashboard interaction, and key research limitations.
+
+## 10. Project Presentation
+
+[View Project Presentation](https://docs.google.com/presentation/d/1jz3FlSHW4p77D6y_6PJfwVnSF7vsEC3d/edit?usp=sharing&ouid=110854139414992523830&rtpof=true&sd=true)
+
+The presentation covers the problem statement, proposed solution, healthcare use case, Digital Twin architecture, mathematical model, synthetic-data methodology, forecasting, evaluation approach, limitations, and future roadmap.
+
+## 11. Verified Status
 
 The following checks were executed and passed in the current workspace:
 
@@ -141,7 +156,7 @@ The following checks were executed and passed in the current workspace:
 - `cd frontend && npm run build` → production build succeeded
 - `cd frontend && npm run dev -- --host 127.0.0.1 --port 4173` → app served successfully at `http://127.0.0.1:4173`
 
-## 10. Installation and Execution
+## 12. Installation and Execution
 
 ### Prerequisites
 
@@ -157,88 +172,3 @@ From the repository root:
 cd <path-to-project>
 python -m pytest -q
 python -m uvicorn physiotwin.api.app:app --host 127.0.0.1 --port 8000 --reload
-```
-
-### Frontend Setup
-
-Open a separate terminal:
-
-```bash
-cd frontend
-npm install
-npm run build
-npm run dev -- --host 127.0.0.1 --port 4173
-```
-
-### API Documentation
-
-Once the backend is running, open:
-
-- `http://127.0.0.1:8000/docs`
-
-## 11. Example API Requests
-
-```bash
-curl http://127.0.0.1:8000/api/health
-curl http://127.0.0.1:8000/api/patients
-curl "http://127.0.0.1:8000/api/patients/SYN-001/observations?duration_min=60&sampling_interval_min=5.0&seed=42"
-curl -X POST http://127.0.0.1:8000/api/simulation/run -H "Content-Type: application/json" -d "{\"patient_id\":\"SYN-001\",\"duration_min\":60.0,\"dt\":1.0}"
-curl -X POST http://127.0.0.1:8000/api/forecast -H "Content-Type: application/json" -d "{\"patient_id\":\"SYN-001\",\"observed_up_to_min\":120.0,\"forecast_horizon_min\":120.0,\"seed\":42}"
-```
-
-## 12. Demo Workflow
-
-1. Start the backend.
-2. Start the frontend.
-3. Select a synthetic patient profile.
-4. View the generated observation stream and simulation outputs.
-5. Review forecast and evaluation metrics.
-6. Evaluate limitations and responsible-use guidance before drawing conclusions.
-
-## 13. Limitations and Responsible Use
-
-- Synthetic data only; no real-patient calibration
-- Model parameters are hypothetical and require scientific justification
-- Forecast intervals are exploratory and not validated clinical confidence intervals
-- Threshold-based risk flags are experimental and should not be treated as medical alerts
-- The project does not provide medical advice, diagnosis, or treatment recommendations
-- The system is not a clinically validated medical device
-
-## 14. Repository Structure
-
-```text
-KIVO/
-├── README.md
-├── LICENSE
-├── physiotwin/
-├── tests/
-├── frontend/
-├── docs/
-│   ├── architecture.pdf
-│   ├── PhysioTwin_Presentation.pptx
-│   ├── PhysioTwin_Presentation.pdf
-│   ├── demo-script.md
-│   └── verification-report.md
-└── .gitignore
-```
-
-## 15. License
-
-This project is released under the MIT License. See [LICENSE](LICENSE) for details.
-
-## 16. Troubleshooting
-
-- If backend imports fail, ensure the project root is on the Python path and dependencies are installed.
-- If the frontend does not start, run `npm install` inside the `frontend` directory.
-- If the app loads but API calls fail, confirm the backend is running on port `8000`.
-- If command paths do not work on Windows, run the commands from the project root in PowerShell.
-
-## 17. Disclaimer
-
-PhysioTwin is an experimental research prototype developed for educational and technical exploration. It is not a medical device and must not be used to make patient-care decisions, diagnosis, or treatment recommendations.
-
----
-
-**Project:** PhysioTwin  
-**Technology Initiative:** KIVO  
-**Public GitHub Repository:** https://github.com/Gane34/KIVO
